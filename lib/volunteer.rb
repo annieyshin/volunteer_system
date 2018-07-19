@@ -11,10 +11,10 @@ class Volunteer
   def self.all
     returned_volunteers = DB.exec("SELECT * FROM volunteers;")
     volunteers = []
-    returned_volunteers.each() do |project|
-      name = volunteers.fetch("name")
-      project_id = volunteers.fetch("project_id").to_i()
-      id = volunteers.fetch("id").to_i()
+    returned_volunteers.each() do |volunteer|
+      name = volunteer.fetch("name")
+      project_id = volunteer.fetch("project_id").to_i()
+      id = volunteer.fetch("id").to_i()
       volunteers.push(Volunteer.new({:name => name, :id => id, :project_id => project_id}))
     end
     volunteers
