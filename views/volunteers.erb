@@ -1,0 +1,10 @@
+<h1>Volunteers</h1>
+  <ul>
+    <% @volunteers.each() do |volunteer|%>
+    <li><%= volunteer.name %></li>
+    <% end %>
+  </ul>
+<br>
+<form class="form-inline" method="get" action="/">
+  <button type="submit" class="btn btn-warning" name="clear_btn">Home Page</button>
+</form>

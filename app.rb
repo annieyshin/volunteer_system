@@ -28,3 +28,35 @@ post('/projects') do
   @projects = Project.all
   erb(:projects)
 end
+
+get('/projects/:id') do
+  @project = Project.find(params.fetch("id").to_i())
+  @volunteers = Volunteer.all
+  erb(:project_edit)
+end
+
+get("/projects/:id/edit") do
+  @project = Project.find(params.fetch("id").to_i())
+  @projects = Project.all()
+  @volunteers = Volunteer.all
+  erb(:project_edit)
+end
+
+patch("/projects/:id") do
+  title = params.fetch("title")
+  @project = Project.find(params.fetch("id").to_i())
+  @project.update({:title => title})
+  erb(:projects)
+end
+
+delete("/projects/:id") do
+  @project = Project.find(params.fetch("id").to_i())
+  @project.delete()
+  @projects = Project.all()
+  erb(:index)
+end
+
+get('/volunteers') do
+  @volunteers = Volunteer.all
+  erb(:volunteers)
+end
