@@ -1,0 +1,17 @@
+<h1>Add a new project</h1>
+
+  <form action="/projects" method="post">
+    <label for="title">Project Title</label>
+    <input type="text" name="title">
+    <button class="btn btn-info" type="submit" name="add_button">Add!</button>
+  </form>
+  <br>
+  <ul>
+    <% @projects.each() do |project|%>
+    <li><%= project.title %></li>
+    <% end %>
+  </ul>
+  <br>
+  <form class="form-inline" method="get" action="/">
+    <button type="submit" class="btn btn-warning" name="clear_btn">Home Page</button>
+  </form>
