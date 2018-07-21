@@ -60,3 +60,17 @@ get('/volunteers') do
   @volunteers = Volunteer.all
   erb(:volunteers)
 end
+
+get('/volunteers/add') do
+  @volunteers = Volunteer.all
+  erb(:volunteer_form)
+end
+
+
+post('/volunteers') do
+  name = params["name"]
+  @volunteer = Volunteer.new({:name => name, :id => nil, :project_id => project_id})
+  @volunteer.save()
+  @volunteers = Volunteer.all
+  erb(:volunteers)
+end
