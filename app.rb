@@ -13,11 +13,6 @@ get("/") do
 end
 
 
-get('/projects/new') do
-  @projects = Project.all
-  erb(:project_form)
-end
-
 post('/') do
   title = params["title"]
   @project = Project.new({:title => title, :id => nil})

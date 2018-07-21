@@ -1,17 +1,22 @@
-<h1>Volunteer and Project Hub</h1>
-
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <p>Projects</p>
-      <br>
-      <a href="/projects/new">Add a new project</a>
-      <br>
-      <a href="/projects/edit">Edit a project</a>
-      <br>
+      <h2>Projects</h2>
+      <h3>Add a new project</h3>
+        <form action="/" method="post">
+          <label for="title">Project Title</label>
+          <input type="text" name="title">
+          <button class="btn btn-info" type="submit" name="add_button">Create Project</button>
+        </form>
+        <br>
+        <ul>
+          <% @projects.each() do |project|%>
+            <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
+          <% end %>
+        </ul>
     </div>
     <div class="col-md-6">
-      <p>Volunteers</p>
+      <h2>Volunteers</h2>
       <a href="/volunteers">View all volunteers</a>
       <br>
       <a href="/volunteers/add">Add a volunteer</a>
@@ -19,18 +24,6 @@
     </div>
   </div>
 
-  <h1>Add a new project</h1>
 
-    <form action="/" method="post">
-      <label for="title">Project Title</label>
-      <input type="text" name="title">
-      <button class="btn btn-info" type="submit" name="add_button">Create Project</button>
-    </form>
-    <br>
-    <ul>
-      <% @projects.each() do |project|%>
-      <li><%= project.title %></li>
-      <% end %>
-    </ul>
 
 </div>
