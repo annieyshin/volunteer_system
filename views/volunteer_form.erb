@@ -6,11 +6,13 @@
 
     <div class="form-group">
       <label for="project_id">Choose a project for this new volunteer</label>
+
       <select name="project_id">
         <% @projects.each() do |project| %>
         <option value="<%= project.id %>"><%=project.title %></option>
         <% end %>
       </select>
+
     </div>
     <button class="btn btn-info" type="submit" class="btn btn-info">Add</button>
   </form>

@@ -4,6 +4,7 @@ require './lib/volunteer'
 require './lib/project'
 also_reload('lib/**/*.rb')
 require 'pg'
+require 'pry'
 
 DB = PG.connect({:dbname => 'volunteer_tracker_test'})
 
