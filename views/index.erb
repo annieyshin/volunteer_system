@@ -9,11 +9,13 @@
           <button class="btn btn-info" type="submit" name="add_button">Create Project</button>
         </form>
         <br>
-        <ul>
+        <table>
           <% @projects.each() do |project|%>
-            <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
+            <tr>
+              <td><a href="/projects/<%= project.id %>"><%= project.title %></a></td>
+            </tr>
           <% end %>
-        </ul>
+        </table>
     </div>
     <div class="col-md-6">
       <h2>Volunteers</h2>
