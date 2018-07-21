@@ -45,7 +45,7 @@ patch("/projects/:id") do
   title = params.fetch("title")
   @project = Project.find(params.fetch("id").to_i())
   @project.update({:title => title})
-  erb(:projects)
+  redirect("/")
 end
 
 delete("/projects/:id") do
