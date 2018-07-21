@@ -8,29 +8,33 @@ require 'pg'
 DB = PG.connect({:dbname => 'volunteer_tracker_test'})
 
 get("/") do
+  @projects = Project.all
   erb(:index)
 end
 
-get('/projects') do
-  @projects = Project.all
-  erb(:projects)
-end
 
 get('/projects/new') do
   @projects = Project.all
   erb(:project_form)
 end
 
-post('/projects') do
+post('/') do
   title = params["title"]
   @project = Project.new({:title => title, :id => nil})
   @project.save()
   @projects = Project.all
-  erb(:projects)
+  erb(:index)
 end
 
 get('/projects/:id') do
   @project = Project.find(params.fetch("id").to_i())
+  @volunteers = Volunteer.all
+  erb(:project_edit)
+end
+
+get('/projects/edit') do
+  @project = Project.find(params.fetch("id").to_i())
+  @projects = Project.all()
   @volunteers = Volunteer.all
   erb(:project_edit)
 end
@@ -69,6 +73,7 @@ end
 
 post('/volunteers') do
   name = params["name"]
+  project_id = params.fetch("project_id").to_i
   @volunteer = Volunteer.new({:name => name, :id => nil, :project_id => project_id})
   @volunteer.save()
   @volunteers = Volunteer.all

@@ -4,7 +4,6 @@
   <div class="row">
     <div class="col-md-6">
       <p>Projects</p>
-      <a href="/projects">View all projects</a>
       <br>
       <a href="/projects/new">Add a new project</a>
       <br>
@@ -19,4 +18,19 @@
       <br>
     </div>
   </div>
+
+  <h1>Add a new project</h1>
+
+    <form action="/" method="post">
+      <label for="title">Project Title</label>
+      <input type="text" name="title">
+      <button class="btn btn-info" type="submit" name="add_button">Create Project</button>
+    </form>
+    <br>
+    <ul>
+      <% @projects.each() do |project|%>
+      <li><%= project.title %></li>
+      <% end %>
+    </ul>
+
 </div>
