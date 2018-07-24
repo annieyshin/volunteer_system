@@ -22,7 +22,7 @@ A system built for a non-profit organization to track volunteers and the project
 10. Run the following command in bash: ruby app.rb
 11. Visit localhost:4567 in web browser
 
-Visit this site at: https://github.com/annieyshin/volunteer_system
+Visit the repository at: https://github.com/annieyshin/volunteer_system
 
 ## Specifications
 
