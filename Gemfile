@@ -1,11 +1,11 @@
 source('https://rubygems.org')
 
+# gem "rails"
 
+gem('sinatra')
+gem('launchy')
+gem('pg')
+gem('sinatra-contrib')
+gem('rspec')
 gem('capybara')
-gem("pg")
-gem("rspec")
-gem("sinatra")
-gem("sinatra-contrib", :require => "sinatra/reloader")
-gem("sinatra-activerecord")
-gem("rake")
 gem('pry')

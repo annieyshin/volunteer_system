@@ -1,8 +1,0 @@
-
-developmentdevelopment::
-  adapter   adapter:: postgresql
-  database postgresql   datab : volunteer_tracker
-
-test:
-  adapter: postgresql
-  database: volunteer_tracker_test
